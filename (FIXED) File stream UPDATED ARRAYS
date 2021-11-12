@@ -1,0 +1,99 @@
+#include <fstream>
+#include <iostream>
+#include <iomanip>
+#include <cstdlib>
+#include <climits>
+#include <cmath>
+#include <emi.h>
+using namespace std;
+
+//file stream function declaration
+void file_test(string bookName, string newBookName);
+
+
+
+//main program
+int main()
+{
+	string bookName, newBookName;
+	ifstream fin;
+	ofstream fout;
+
+
+
+
+	file_test(bookName, newBookName);
+}
+
+
+//file stream function definition
+void file_test(string bookName, string newBookName)
+{
+	//
+	//THIS WORKS -----------------------------------------------------------------------
+	cout << "Enter book name" << endl;
+	cin >> bookName;
+
+
+
+	char ans;
+	cout << "Based on your book selection, the file for your book is called "
+		<< bookName << ".txt" << endl
+		<< "You can save it under the same name, or change the file name. " << endl
+		<< "Would you like to keep the same file name or change it? " << endl
+		<< "Press y/Y to change it or n/N to keep it the same" << endl;
+	cin >> ans;
+	if ((ans == 'y') || (ans == 'Y'))
+	{
+		cout << "What file name would you like to save your book under?" << endl
+			<< "Select one from the following menu. " << endl
+			<< "Type file name menu here";
+		cin >> newBookName;
+	}
+	//THIS WORKS	^^^^ -------------------------------------------------------------
+
+	//INPUT FILE STREAM -----------------------------------------------------------------------------	
+	
+	
+		//Original Book Name File
+		if (ans == 'n' || ans == 'N')//if user doesn't want to change name
+		{
+			ofstream outputFile_One(bookName);//opens file stream with user book name
+			if (outputFile_One.fail())//if statement if reading file failed
+			{
+				cout << "Opening Book file failed" << endl;
+				exit(1);
+			}
+
+			outputFile_One << "Here is some text" << endl;//inputs text into .txt file
+			outputFile_One.close();//closes .txt file
+		}
+
+		//New Book Name File
+		if (ans == 'y' || ans == 'Y')
+		{
+			ofstream outputFile_Two(newBookName);
+			if (outputFile_Two.fail())
+			{
+				cout << "Opening new file failed" << endl;
+				exit(1);
+			}
+
+			outputFile_Two << "Here is some new text" << endl;
+			outputFile_Two.close();
+
+
+		}
+//INPUT FILE STREAM	------------------------------------------------------------
+
+//ARRAY TEST
+		/*string book1 = "Fault in our Stars", book2 = "Book 2",
+			book3 = "Book 3", book4 = "Book 4", book5 = "book5";
+
+		string bookList[10] = {book1, book2, book3, book3, book4, book5};
+
+		cout << bookList[0] << endl;
+		*/
+		
+}
+
