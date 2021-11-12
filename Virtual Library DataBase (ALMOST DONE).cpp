@@ -14,6 +14,11 @@ using namespace std;
 // started the file_test function and created some streams and bookFileName
 // runs well if you comment out file_test and its variables
 
+//	READ ME (RYAN)
+//It works the way we want it
+//We just need to make it so that each book has different values to store into the txt file
+//I tried creating an algorithm for it but my brain melted halfway through, I'll figure it out more tonight
+//I have yet to do this for the quiz function though, so look through this code and ask any questions
 
 
 char ans;
